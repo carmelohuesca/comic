@@ -1,0 +1,33 @@
+.my-account-img {
+    height: 200px;
+    transform: scaleX(-1);
+}
+
+.title {
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.show-card-overlay {
+    position: absolute;
+    z-index: 10;
+    top: 64px;
+    width: 250px;
+}
+
+.fixed-button {
+    z-index: 9;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+}
+
+.show-card {
+    right: 0;
+    transition: all .2s ease-in-out;
+}
+
+.hide-card {
+    right: -280px;
+    transition: all .2s ease-in-out;
+}

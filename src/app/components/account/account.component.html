@@ -1,0 +1,83 @@
+<div>
+    <button mat-icon-button (click)="toggle()" color="primary">
+    <mat-icon aria-label="Cuenta">account_box</mat-icon>
+  </button>
+</div>
+<div fxLayout="row" class="show-card-overlay" [ngClass]="{'show-card':show,'hide-card':!show}">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <span fxFlex class="title" i18n="Mi cuenta">
+          Mi cuenta
+        </span>
+            </mat-card-title>
+        </mat-card-header>
+        <img src="assets/img/she.jpg" alt="" class="my-account-img">
+        <mat-card-content>
+            <div fxLayout="column">
+                <form name="frmAccount" #frmAccount [formGroup]="accountForm">
+                    <div fxLayout="row">
+                    </div>
+                    <div fxLayout="row">
+                        <mat-form-field fxFlex floatPlaceholder="auto" dividerColor="primary">
+                            <input autofocus matInput required formControlName="name" name="name" type="text" i18n-placeholder="Nombre" placeholder="Nombre">
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="row">
+                        <mat-form-field fxFlex floatPlaceholder="auto" dividerColor="primary">
+                            <input matInput required formControlName="email" name="email" type="text" i18n-placeholder="Correo electrónico" placeholder="Correo electrónico">
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="row">
+                        <mat-form-field>
+                            <input matInput name="birthDate" formControlName="birthDate" [matDatepicker]="birthdate" placeholder="Fecha de Nacimiento">
+                            <mat-datepicker-toggle matSuffix [for]="birthdate"></mat-datepicker-toggle>
+                            <mat-datepicker #birthdate></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="row">
+                        <mat-form-field fxFlex="100px">
+                            <mat-select placeholder="Calzado" formControlName="shoesSize">
+                                <mat-option *ngFor="let footSize of footSizes" [value]="footSize">
+                                    {{footSize}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field fxFlex="100px">
+                            <mat-select placeholder="Pantalón" formControlName="pantsSize">
+                                <mat-option *ngFor="let pantSize of pantSizes" [value]="pantSize">
+                                    {{pantSize}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="row">
+                        <mat-form-field fxFlex="100px">
+                            <mat-select placeholder="Camiseta" formControlName="shirtSize">
+                                <mat-option *ngFor="let garmentSize of garmentSizes" [value]="garmentSize">
+                                    {{garmentSize}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field fxFlex="100px">
+                            <mat-select placeholder="Abrigo" formControlName="coatSize">
+                                <mat-option *ngFor="let garmentSize of garmentSizes" [value]="garmentSize">
+                                    {{garmentSize}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="row">
+                        <mat-slide-toggle formControlName="newsletter">Newsletter</mat-slide-toggle>
+                    </div>
+                </form>
+            </div>
+        </mat-card-content>
+        <!-- <mat-card-actions fxLayoutAlign="start">
+            <button fxFlex mat-raised-button [disabled]="!accountForm.valid" color="primary" i18n="Aceptar">Aceptar</button>
+        </mat-card-actions> -->
+        <mat-card-footer>
+            <button fxFlex mat-raised-button [disabled]="!accountForm.valid" color="primary" i18n="Aceptar">Aceptar</button>
+        </mat-card-footer>
+    </mat-card>
+</div>
