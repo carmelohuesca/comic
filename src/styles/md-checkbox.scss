@@ -1,0 +1,12 @@
+.mat-checkbox-frame {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.cdk-focused {
+    background-color: rgba(0, 0, 0, 0.2);
+}

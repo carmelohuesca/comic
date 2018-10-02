@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+// @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import './styles/depth.scss';
+@import './styles/md-icons.scss';
+@import './styles/md-stepper.scss';
+@import './styles/md-checkbox.scss';
+@import './styles/mango-theme.scss';
+@include mat-core();
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.mat-horizontal-content-container {
+    padding: 0 !important;
+}
+
+.view {
+    padding: 64px 0 0 0;
+    height: calc(100vh - 64px);
+    overflow: scroll-y;
+}
