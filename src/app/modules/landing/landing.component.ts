@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'mng-landing',
+  selector: 'mng-landing-view',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
 })

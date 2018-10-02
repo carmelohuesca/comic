@@ -5,7 +5,7 @@ import { Subscriber } from 'rxjs/Subscriber';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
-  selector: 'mng-home',
+  selector: 'mng-home-view',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
