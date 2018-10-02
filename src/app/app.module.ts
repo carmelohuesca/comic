@@ -8,16 +8,18 @@ import { CoreModule } from '@angular/flex-layout';
 import { HeaderModule } from './components/header';
 import { LandingComponent } from './modules/landing/landing.component';
 import { LandingModule } from './modules/landing/landing.module';
+import { HomeComponent } from './modules/home/home.component';
+import { HomeModule } from './modules/home/home.module';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'landing',
     pathMatch: 'full'
   },
   {
     path: '**',
-    component: LandingComponent
+    component: HomeComponent
   }
 ];
 @NgModule({
@@ -30,6 +32,7 @@ const routes: Routes = [
     CoreModule,
     HeaderModule,
     LandingModule,
+    HomeModule,
     BrowserAnimationsModule
   ],
   providers: [],

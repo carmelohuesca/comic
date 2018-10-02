@@ -1,0 +1,108 @@
+<div fxLayout="row">
+    <mat-horizontal-stepper fxFlex [linear]="false" #stepper>
+
+        <mat-step>
+            <ng-template matStepLabel>Bienvenido</ng-template>
+            <div fxFlexFill class="full-page page-000" fxLayout="column">
+                <div class="title">
+                    ¿Por qué?
+                </div>
+            </div>
+        </mat-step>
+
+        <mat-step>
+
+            <ng-template matStepLabel>Identidad</ng-template>
+            <div fxFlexFill class="full-page page-001" fxLayout="column">
+                <div class="title">
+                    <div>Una parte de tu identidad</div>
+                    <div class="form-group" fxLayout="row" fxLayoutAlign="space-around center">
+                        <form name="accountForm" #nameFrm [formGroup]="accountForm" fxFlex fxLayout="row" fxLayoutAlign="space-around center">
+                            <div fxLayout="row" fxLayoutGap="20px" fxFlex>
+                                <mat-form-field fxFlex floatPlaceholder="auto" dividerColor="primary">
+                                    <input matInput autofocus required formControlName="name" name="name" type="text" i18n-placeholder="Nombre" placeholder="Nombre">
+                                </mat-form-field>
+                                <mat-form-field fxFlex floatPlaceholder="auto" dividerColor="primary">
+                                    <input matInput autofocus required formControlName="email" name="email" type="text" i18n-placeholder="Correo Electrónico" placeholder="Correo Electrónico">
+                                </mat-form-field>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </mat-step>
+
+        <mat-step>
+            <ng-template matStepLabel>Experiencias</ng-template>
+            <div fxFlexFill class="full-page page-002" fxLayout="column">
+                <div class="title">
+                    Vivimos experiencias
+                </div>
+            </div>
+        </mat-step>
+
+        <mat-step>
+            <ng-template matStepLabel>El primer paso</ng-template>
+            <div fxFlexFill class="full-page page-003" fxLayout="column">
+                <div class="title">
+                    <div>
+                        Todo camino comienza por el primer paso
+                    </div>
+                    <div class="form-group" fxLayout="row" fxLayoutAlign="space-around center">
+                        <form name="sizeForm" #nameFrm [formGroup]="sizeForm" fxFlex fxLayout="row" fxLayoutAlign="space-around center">
+                            <div fxLayout="row" fxLayoutGap="20px" fxFlex>
+                                <mat-form-field fxFlex>
+                                    <mat-select placeholder="Selecciona tu talla de calzado" formControlName="shoesSize">
+                                        <mat-option *ngFor="let shoeSize of shoeSizes" [value]="shoeSize">
+                                            {{shoeSize}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field fxFlex>
+                                    <mat-select placeholder="Pantalón" formControlName="pantsSize">
+                                        <mat-option *ngFor="let pantSize of pantSizes" [value]="pantSize">
+                                            {{pantSize}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field fxFlex>
+                                    <mat-select placeholder="Camiseta" formControlName="shirtSize">
+                                        <mat-option *ngFor="let garmentSize of garmentSizes" [value]="garmentSize">
+                                            {{garmentSize}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field fxFlex>
+                                    <mat-select placeholder="Abrigo" formControlName="coatSize">
+                                        <mat-option *ngFor="let garmentSize of garmentSizes" [value]="garmentSize">
+                                            {{garmentSize}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </mat-step>
+
+        <mat-step>
+            <ng-template matStepLabel>¿Empezamos?</ng-template>
+            <div fxFlexFill class="full-page page-004" fxLayout="column">
+                <div class="title">
+                    <div fxLayout="row" fxLayoutAlign="space-around center">
+                        ¿Empezamos?
+                    </div>
+                    <div class="form-group" fxLayout="row" fxLayoutAlign="space-around center">
+                        <mat-slide-toggle (click)="toggleNews()" checked="account.newsletter">
+                            Quiero recibir promociones exclusivas, las últimas novedades e información personalizada.
+                        </mat-slide-toggle>
+                        <button fxFlex="320px" (click)="navigateTo('story')" mat-raised-button [disabled]="!accountForm.valid" color="primary" i18n="Si, Empecemos!">Si,
+              Empecemos!</button>
+                    </div>
+                </div>
+            </div>
+        </mat-step>
+
+    </mat-horizontal-stepper>
+</div>

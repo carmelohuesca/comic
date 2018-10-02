@@ -1,0 +1,56 @@
+.title {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: 32px auto;
+    margin: 38vh auto;
+    font-size: 32px;
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.form-group {
+    width: 100%;
+    margin: 0;
+    padding: 0 10%;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    font-size: 14px;
+    text-align: center;
+    text-transform: none;
+    vertical-align: middle;
+}
+
+.full-page {
+    height: calc(100vh - 128px);
+    min-height: calc(100vh - 128px);
+    width: 100%;
+}
+
+.page-000 {
+    background: #c8956a url("../../../assets/img/mng-woman.png") center center no-repeat;
+    background-size: contain, cover;
+}
+
+.page-001 {
+    background: url("../../../assets/img/medium/together12.jpg") top center no-repeat;
+    background-size: cover;
+}
+
+.page-002 {
+    background: url("../../../assets/img/medium/museum12.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+.page-003 {
+    background: url("../../../assets/img/medium/museum9.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+.page-004 {
+    background: url("../../../assets/img/medium/together11.jpg") center center no-repeat;
+    background-size: cover;
+    background-position: top;
+}
