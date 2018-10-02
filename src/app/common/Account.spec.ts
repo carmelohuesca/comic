@@ -21,9 +21,6 @@ describe('Account', () => {
 
   it('tiene un método que obtiene la edad', () => {
     expect(instance.getAge).toBeDefined();
-    // const thisYear = new Date().getFullYear() + 1;
-    // console.log(thisYear);
-    // expect(instance.getAge()).toBe(thisYear - Account.DEFAULT_YEAR);
     expect(instance.getAge()).toBeDefined();
   });
 
