@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WardrobeComponent } from './wardrobe.component';
+import { CoreModule } from '../../core/core.module';
 
 const WARDROBE_COMPONENTS = [
   WardrobeComponent
@@ -8,7 +9,8 @@ const WARDROBE_COMPONENTS = [
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    CoreModule
   ],
   declarations: [
     ...WARDROBE_COMPONENTS

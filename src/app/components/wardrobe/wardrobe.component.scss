@@ -1,0 +1,51 @@
+.section-name {
+    outline: 1px solid lightgray;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.tile-text {
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.wardrobe {
+    max-height: calc(100vh - 128px);
+    overflow-y: auto;
+}
+
+.wardrobe-bg {
+    height: calc(100vh - 128px);
+    max-height: calc(100vh - 128px);
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.maximize {
+    width: 32px;
+    height: 32px;
+}
+
+.section-option {
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, .9);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    bottom: 0;
+}
+
+.full {
+    background-color: rgba(0, 0, 0, .2);
+    transition: 0.2s all ease-in-out;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    &:hover {
+        transition: 0.2s all ease-in-out;
+        background-color: rgba(0, 0, 0, .4);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+    }
+}
+
+.empty {
+    background-color: rgba(255, 255, 255, .5);
+}

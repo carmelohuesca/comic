@@ -25,7 +25,7 @@ export class AccountService {
   }
 
   setAccount(account: Account): Observable<Account> {
-    this.saveAccountToService(account).subscribe(result => console.log(result));
+    this.saveAccountToService(account).subscribe(result => console.log('saved to service', result));
     this.account = account;
     return of(this.account);
   }

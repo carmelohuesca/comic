@@ -1,3 +1,50 @@
-<p>
-  wardrobe works!
-</p>
+<div fxLayout="row">
+    <div fxFlex>
+        <div fxLayout="row">
+            <form name="sectionForm" #sectionFrmCtr (ngSubmit)="addTile(2,2)" [formGroup]="sectionForm" fxFlex>
+                <mat-form-field fxFlex floatPlaceholder="auto" dividerColor="primary">
+                    <input matInput formControlName="section" placeholder="Sección">
+                </mat-form-field>
+
+                <button type="submit" mat-raised-button>Nuevo</button>
+            </form>
+            <button mat-raised-button (click)="addTile(1,1)">+</button>
+            <button mat-raised-button (click)="removeTile()">-</button>
+        </div>
+        <div class="wardrobe-bg" fxFlexFill>
+            <mat-grid-list cols="3" rowHeight="150px" class="wardrobe">
+                <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" class="section-name" [rowspan]="tile.rows">
+                    <div fxFlexFill [fxLayout]="tile.horizontal?'row':'column'" (click)="selectTile(tile)">
+                        <div fxFlex class="empty"></div>
+                        <div *ngFor="let outfit of tile.outfits" fxFlex class="full" (click)="selectOutfit(outfit)">
+                            {{outfit.name}}
+                        </div>
+                    </div>
+                    <div class="tile-text">
+                        {{tile.text}}
+                    </div>
+                    <div class="section-option" fxFlex>
+                        <button mat-icon-button (click)="toggleType(tile)" color="primary">
+              <mat-icon class="mat-18">screen_rotation</mat-icon>
+            </button> <button mat-icon-button (click)="addItem(tile)" color="accent">
+              <mat-icon class="mat-18">add</mat-icon>
+            </button> <button mat-icon-button (click)="removeItem(tile)" color="warn">
+              <mat-icon class="mat-18">remove</mat-icon>
+            </button>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+    </div>
+    <div fxFlex fxLayout="row">
+        <div fxFlexFill fxFlex>
+
+            <small>
+        <pre>{{tile | json}}</pre>
+        <pre>{{outfit | json}}</pre>
+      </small>
+
+        </div>
+        <!-- <iframe fxFexFill fxFlex src="https://shop.ext.pre.mango.com/es" frameborder="0"></iframe> -->
+    </div>
+</div>
