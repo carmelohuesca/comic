@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CoreModule } from '@angular/flex-layout';
+import { HeaderModule } from './components/header';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserModule,
     CoreModule,
+    HeaderModule,
     BrowserAnimationsModule
   ],
   providers: [],
