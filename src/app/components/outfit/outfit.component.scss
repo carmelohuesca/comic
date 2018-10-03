@@ -1,0 +1,53 @@
+.garment-picture {
+    height: calc(50vh - 64px);
+    max-height: 600px;
+}
+
+.garment-item {
+    float: left;
+}
+
+.garment-actions {
+    position: inherit;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.garment-cards {
+    max-height: calc(100vh - 128px);
+    overflow-y: auto;
+    display: block !important;
+    // background-color: rgba(255, 255, 255, 0.9);
+}
+
+.outfit-bg {
+    // background: url("../../../assets/img/medium/museum13.jpg") center center no-repeat;
+    // background-size: cover;
+}
+
+.fixed-add-button {
+    z-index: 9;
+    position: absolute;
+    right: 12px;
+    top: 88px;
+}
+
+.fixed-remove-button {
+    z-index: 9;
+    position: absolute;
+    right: 12px;
+    top: 128px;
+}
+
+.garment-close-icon {
+    position: absolute;
+    // right: 10px;
+    // top: 10px;
+}
+
+.fixed-buy-button {
+    z-index: 9;
+    position: absolute;
+    right: 12px;
+    bottom: 20px;
+}

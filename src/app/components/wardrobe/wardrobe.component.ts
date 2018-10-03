@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Tile, TileInterface } from './Tile';
 import { AccountService } from '../../common/account.service';
 import { Account } from '../../common/Account';
+import { Outfit } from '../outfit/Outfit';
 
 @Component({
   selector: 'mng-wardrobe',
@@ -11,7 +12,6 @@ import { Account } from '../../common/Account';
 })
 export class WardrobeComponent implements OnInit {
 
-  tiles = [];
   sectionForm: FormGroup;
   account: Account | any;
   outfit: any;
@@ -28,14 +28,18 @@ export class WardrobeComponent implements OnInit {
 
   init() {
     this.accountService.getAccount().subscribe(account => this.getAccount(account));
+    this.createTileForm();
+  }
+
+  createTileForm() {
     this.sectionForm = this.fb.group({
-      section: ['Sección ', Validators.required]
+      section: [this.tile ? this.tile.name : '', Validators.required]
     });
   }
 
   getRandomColor() {
     const colors = [
-      'White'
+      'rgba(255,255,255,0.4)'
       // 'Black'
       // 'Red', 'Pink', 'Purple', 'Indigo', 'Blue', 'Cyan', 'Teal',
       // 'Green', 'Lime', 'Yellow', 'Amber', 'Orange', 'Brown', 'Grey'
@@ -46,24 +50,23 @@ export class WardrobeComponent implements OnInit {
 
   addTile(cols: number, rows: number) {
     const tile: TileInterface = new Tile(cols, rows);
-    tile.text = this.sectionForm.controls.section.value;
+    tile.name = this.sectionForm.controls.section.value;
     tile.color = this.getRandomColor();
-    this.tiles.push(tile);
+    this.account.wardrobe.tiles.push(tile);
     this.saveToAccount();
   }
 
   removeTile() {
-    this.tiles.pop();
+    this.account.wardrobe.tiles.pop();
     this.saveToAccount();
   }
 
   getAccount(account: Account | any) {
     this.account = account || new Account();
-    this.tiles = account.wardrobe && account.wardrobe.tiles ? account.wardrobe.tiles : [];
   }
 
   saveToAccount() {
-    this.account.wardrobe = { tiles: this.tiles };
+    this.account.wardrobe = { tiles: this.account.wardrobe.tiles };
     this.accountService.setAccount(this.account).subscribe(account => this.account = account);
   }
 
@@ -72,13 +75,13 @@ export class WardrobeComponent implements OnInit {
       tile.rows = 1;
       tile.cols = 1;
     } else {
-      tile.rows = 3;
-      tile.cols = 3;
+      tile.rows = 2;
+      tile.cols = 2;
     }
   }
 
   addItem(tile: Tile) {
-    tile.outfits.push({ name: 'new tile' });
+    tile.outfits.push(new Outfit('new outfit'));
     this.saveToAccount();
   }
 

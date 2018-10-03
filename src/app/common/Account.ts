@@ -5,7 +5,7 @@ interface AccountInterface {
   birthDate: string;
   age: string;
   newsletter: boolean;
-  wardrobe: string[];
+  wardrobe: any;
   wishList: string[];
 }
 
@@ -21,7 +21,7 @@ export class Account implements AccountInterface {
   pantsSize: string;
   shirtSize: string;
   coatSize: string;
-  wardrobe: string[];
+  wardrobe: any;
   wishList: string[];
 
   constructor(name?: string, email?: string) {
@@ -30,7 +30,7 @@ export class Account implements AccountInterface {
     this.newsletter = true;
     this.birthDate = new Date(Account.DEFAULT_YEAR, 1, 24).toISOString();
     this.wishList = [];
-    this.wardrobe = [];
+    this.wardrobe = { tiles: [] };
     this.getAge();
   }
 

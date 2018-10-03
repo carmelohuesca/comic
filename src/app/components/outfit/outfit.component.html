@@ -1,0 +1,43 @@
+<div fxFlexFill class="outfit-bg">
+    <div>
+        <!-- <div>
+            <form name="frmOutfit" #frmOutfit [formGroup]="outfitForm">
+                <div fxLayout="row">
+                    <mat-form-field fxFlex floatPlaceholder="auto" dividerColor="primary">
+                        <input autofocus matInput required formControlName="name" name="name" type="text" i18n-placeholder="Nombre" placeholder="Nombre">
+                    </mat-form-field>
+                </div>
+            </form>
+        </div> -->
+        <div fxLayout="row">
+            <div fxFlex></div>
+            <button mat-mini-fab class="fixed-add-button" color="primary" (click)="addGarment()">
+        <mat-icon>add</mat-icon>
+      </button>
+
+
+            <button mat-raised-button class="fixed-buy-button" color="primary" (click)="buyAll()">
+        Comprar Todo
+      </button>
+
+
+        </div>
+    </div>
+    <div class="garment-cards">
+        <div *ngFor="let garment of outfit.garments; let i = index;">
+            <div class="garment-item">
+                <img class="garment-picture" (click)="changeGarment(i)" src="{{garment.picture}}">
+                <div class="garment-actions">
+                    <button mat-icon-button (click)="toggleMine(i)" color="primary">
+            <mat-icon class="mat-18">{{garment.itsMine?'check_circle_outline':'radio_button_unchecked'}}</mat-icon>
+          </button>
+                    <button [disabled]="garment.itsMine" mat-button color="primary" (click)="onClick">Comprar</button>
+                    <button mat-icon-button (click)="removeGarment(i)" color="warn">
+            <mat-icon class="mat-18">remove</mat-icon>
+          </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,34 +1,49 @@
 <div fxLayout="row">
     <div fxFlex>
         <div fxLayout="row">
-            <form name="sectionForm" #sectionFrmCtr (ngSubmit)="addTile(2,2)" [formGroup]="sectionForm" fxFlex>
+            <form name="sectionForm" #sectionFrmCtr (ngSubmit)="addTile(1,1)" [formGroup]="sectionForm" fxFlex>
                 <mat-form-field fxFlex floatPlaceholder="auto" dividerColor="primary">
                     <input matInput formControlName="section" placeholder="Sección">
                 </mat-form-field>
 
-                <button type="submit" mat-raised-button>Nuevo</button>
+                <button [disabled]="!sectionForm.valid" type="submit" mat-raised-button>+</button>
             </form>
-            <button mat-raised-button (click)="addTile(1,1)">+</button>
+            <!-- <button mat-raised-button (click)="addTile(1,1)">+</button> -->
             <button mat-raised-button (click)="removeTile()">-</button>
+            <button mat-raised-button color="primary" (click)="saveToAccount()">Guardar</button>
         </div>
         <div class="wardrobe-bg" fxFlexFill>
-            <mat-grid-list cols="3" rowHeight="150px" class="wardrobe">
-                <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" class="section-name" [rowspan]="tile.rows">
+            <mat-grid-list cols="4" rowHeight="150px" class="wardrobe" *ngIf="account && account.wardrobe">
+                <mat-grid-tile *ngFor="let tile of account.wardrobe.tiles" [colspan]="tile.cols" class="section-name" [rowspan]="tile.rows" [style.background]="tile.color">
                     <div fxFlexFill [fxLayout]="tile.horizontal?'row':'column'" (click)="selectTile(tile)">
-                        <div fxFlex class="empty"></div>
+                        <div fxFlex *ngIf="tile.outfits.length===0" class="empty"></div>
                         <div *ngFor="let outfit of tile.outfits" fxFlex class="full" (click)="selectOutfit(outfit)">
-                            {{outfit.name}}
+
+                            <div class="garment-quantity">
+                                {{outfit.garments.length}}
+                            </div>
+
+                            <span *ngFor="let garment of outfit.garments">
+                <mat-icon>{{garment.itsMine?'check_circle_outline':'radio_button_unchecked'}}</mat-icon>
+              </span>
+
                         </div>
                     </div>
                     <div class="tile-text">
-                        {{tile.text}}
+                        {{tile.name}}
                     </div>
                     <div class="section-option" fxFlex>
                         <button mat-icon-button (click)="toggleType(tile)" color="primary">
               <mat-icon class="mat-18">screen_rotation</mat-icon>
-            </button> <button mat-icon-button (click)="addItem(tile)" color="accent">
+            </button>
+                        <button mat-icon-button (click)="addItem(tile)" color="accent">
               <mat-icon class="mat-18">add</mat-icon>
-            </button> <button mat-icon-button (click)="removeItem(tile)" color="warn">
+            </button>
+
+                        <button mat-icon-button (click)="toggle(tile)" color="primary">
+              <mat-icon class="mat-18">fullscreen</mat-icon>
+            </button>
+                        <button mat-icon-button (click)="removeItem(tile)" color="warn">
               <mat-icon class="mat-18">remove</mat-icon>
             </button>
                     </div>
@@ -36,15 +51,10 @@
             </mat-grid-list>
         </div>
     </div>
-    <div fxFlex fxLayout="row">
+    <div fxFlex fxLayout="row" *ngIf="outfit">
         <div fxFlexFill fxFlex>
-
-            <small>
-        <pre>{{tile | json}}</pre>
-        <pre>{{outfit | json}}</pre>
-      </small>
-
+            <mng-outfit *ngIf="outfit" [outfit]="outfit"></mng-outfit>
         </div>
-        <!-- <iframe fxFexFill fxFlex src="https://shop.ext.pre.mango.com/es" frameborder="0"></iframe> -->
     </div>
+    <!-- <iframe fxFexFill fxFlex src="https://shop.ext.pre.mango.com/es" frameborder="0"></iframe> -->
 </div>

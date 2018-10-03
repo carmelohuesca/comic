@@ -3,7 +3,7 @@ export interface TileInterface {
   cols: number;
   rows: number;
   color: string;
-  text: string;
+  name: string;
   horizontal: boolean;
   outfits: any[];
   protected: boolean;
@@ -12,7 +12,7 @@ export class Tile implements TileInterface {
   protected: boolean;
   horizontal: boolean;
   outfits: any[];
-  text: string;
+  name: string;
   cols: number;
   rows: number;
   color: string;
