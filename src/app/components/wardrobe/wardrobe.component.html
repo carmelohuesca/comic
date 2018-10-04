@@ -17,7 +17,7 @@
                 <mat-grid-tile *ngFor="let tile of account.wardrobe.tiles" [colspan]="tile.cols" class="section-name" [rowspan]="tile.rows" [style.background]="tile.color">
                     <div fxFlexFill [fxLayout]="tile.horizontal?'row':'column'" (click)="selectTile(tile)">
                         <div fxFlex *ngIf="tile.outfits.length===0" class="empty"></div>
-                        <div *ngFor="let outfit of tile.outfits" fxFlex class="full" (click)="selectOutfit(outfit)">
+                        <div *ngFor="let outfit of tile.outfits" fxFlex class="full" (click)="selectOutfit(outfit)" [style.background]="outfit.color">
 
                             <div class="garment-quantity">
                                 {{outfit.garments.length}}

@@ -33,19 +33,32 @@ export class Garment implements GarmentInterface {
   }
 
 }
-
 export interface OutfitInterface {
   name: string;
+  color: string;
   garments: GarmentInterface[];
 }
 
 export class Outfit implements OutfitInterface {
   name: string;
+  color: string;
   garments: GarmentInterface[];
 
   constructor(name: string) {
     this.name = name;
     this.garments = [];
+    this.color = this.getRandomColor();
+  }
+
+  getRandomColor() {
+    const colors = [
+      // 'rgba(255,255,255,0.4)'
+      // 'Black',
+      'Red', 'Pink', 'Purple', 'Indigo', 'Blue', 'Cyan', 'Teal',
+      'Green', 'Lime', 'Yellow', 'Amber', 'Orange', 'Brown', 'Grey'
+    ];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    return randomColor;
   }
 
 }

@@ -37,21 +37,10 @@ export class WardrobeComponent implements OnInit {
     });
   }
 
-  getRandomColor() {
-    const colors = [
-      'rgba(255,255,255,0.4)'
-      // 'Black'
-      // 'Red', 'Pink', 'Purple', 'Indigo', 'Blue', 'Cyan', 'Teal',
-      // 'Green', 'Lime', 'Yellow', 'Amber', 'Orange', 'Brown', 'Grey'
-    ];
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    return randomColor;
-  }
-
   addTile(cols: number, rows: number) {
     const tile: TileInterface = new Tile(cols, rows);
     tile.name = this.sectionForm.controls.section.value;
-    tile.color = this.getRandomColor();
+    tile.color = 'rgba(255,255,255,0.4)';
     this.account.wardrobe.tiles.push(tile);
     this.saveToAccount();
   }
